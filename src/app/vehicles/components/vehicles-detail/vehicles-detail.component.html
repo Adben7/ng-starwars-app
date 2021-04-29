@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+           <h1>{{ pageTitle }}</h1>
+        </div>
+        <div class="card-body" >
+            <div class="box" *ngIf="vehicle$ | async as vehicle else loading">
+                <div class="picture"><img src="/assets/img/vehicles/{{ vehicle.name }}.jpg" ></div>
+                <div class="infos1">
+                    <h2>{{ vehicle.name }}</h2>
+                    <p>
+                        <span>Cargo capacity: </span>{{ vehicle.cargo_capacity }}<br> 
+                        <span>Consumables: </span>{{ vehicle.consumables }}<br> 
+                        <span>Cost in credits: </span>{{ vehicle.cost_in_credits }}<br> 
+                        <span>Crew: </span>{{ vehicle.crew }}<br> 
+                        <span>Length: </span>{{ vehicle.length}}<br> 
+                        <span>Max_ tmosphering speed: </span>{{ vehicle.max_atmosphering_speed }}<br> 
+                        <span>Model: </span>{{ vehicle.model }}<br> 
+                        <span>Passengers: </span>{{ vehicle.passengers }}<br> 
+                        <span>Vehicle Class: </span>{{ vehicle.vehicle_class }}<br> 
+                    </p>
+                </div>
+                <div class="infos2">
+                    <h4>Films</h4>
+                    <div class="list">
+                        <button *ngFor="let film of vehicle.films; index as i"
+                                (click)="goToDetail(film)" type="button" class="btn btn-light">
+                            Film {{i+1}}
+                        </button>    
+                    </div>
+                </div>
+            </div>
+            <ng-template #loading>
+                <div class="text-center m-3">
+                    <div class="spinner-grow text-primary pinner-grow-xl" role="status">
+                      <span class="sr-only"></span>
+                    </div>
+                </div>
+             </ng-template>
+        </div>
+        <div class="card-footer text-muted text-center">Created By Adil Benmouny</div>
+    </div>
+</div>
+
+
+
+

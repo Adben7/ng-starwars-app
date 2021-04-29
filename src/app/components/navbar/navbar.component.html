@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
+  <a class="navbar-brand" href="">
+    <img src="/assets/img/photo/logo-starwars.png" alt="" width="60" height="50">
+  </a>  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a *ngFor="let item of menuItems" [routerLink]="item.url" class="nav-item nav-link active" >
+            {{item.title}}
+        </a>
+      </div>
+    </div>
+</nav>
+

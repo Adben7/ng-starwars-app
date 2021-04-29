@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+           <h1>{{ pageTitle }}</h1>
+        </div>
+        <div class="card-body content" *ngIf="planets$ | async as planets else loading" >
+            <div *ngFor="let planet of planets" class="card mb-3" style="width: 18rem;">
+                <img class="card-img-top" src="/assets/img/planets/{{ planet.name }}.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ planet.name }}</h5>
+                  <p class="card-text">
+                      <span>Climate: </span>{{ planet.climate }}<br>
+                      <span>Diameter: </span>{{ planet.diameter }}<br>
+                      <span>Gravity: </span>{{ planet.gravity }}<br>
+                  </p>
+                  <a (click)="goToDetail(planet.url)" class="btn btn-primary">more...</a>
+                </div>
+            </div>
+        </div>
+        <ng-template #loading>
+            <div class="text-center m-3">
+                <div class="spinner-grow text-primary pinner-grow-xl" role="status">
+                  <span class="sr-only"></span>
+                </div>
+            </div>
+         </ng-template>
+        <div class="card-footer text-muted text-center">Created By Adil Benmouny</div>
+    </div>
+</div>
